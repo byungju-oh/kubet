@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: qudwndh/web:latest
+        image: qudwndh/was:latest
         ports:
         - containerPort: 5000
         env:

@@ -1,26 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-proxy
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-proxy
     spec:
       containers:
-      - name: nginx
-        image: qudwndh/nginx:latest
+      - name: nginx-proxy
+        image: qudwndh/nginx-web
         ports:
         - containerPort: 80
         env:
-        - name: SERVER_NAME
-          value: "localhost"
-        - name: WEB_SERVICE_HOST
-          value: "web"
-        - name: WEB_SERVICE_PORT
-          value: "5000"
+        - name: BACKEND_SERVER
+          value: "104.154.95.93"
